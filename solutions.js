@@ -33,7 +33,7 @@ function isPalindrome(line) {
   return (String(line) === String(line).split('').reverse().join(''))
 }
 
-//is anagram refactored
+//is anagram
 var isAnagram = function (test, original) {
   const toObject = (str) => {
     const newObj = {};
@@ -65,3 +65,20 @@ var isAnagram = function (test, original) {
   return (t == o) ? true : false;
 };
 
+//Birthday I - Cake
+function cake(x, y) {
+  const percents = (x / 100) * 70;
+  let sumEven = 0;
+  let sumOdd = 0;
+
+  for (let i = 0; i < y.length; ++i) {
+    if (i % 2 === 0) {
+      sumOdd += y.charCodeAt(i);
+    } else {
+      sumEven += y.charCodeAt(i) - 96;
+    }
+  }
+  let sum = sumOdd + sumEven;
+
+  return (sum >= percents) ? 'Fire!' : 'That was close!';
+}
