@@ -31,3 +31,27 @@ function isPalindrome(line) {
   return (String(line) === String(line).split('').reverse().join(''))
 }
 
+var isAnagram = function (test, original) {
+
+  const toObject = (str) => {
+    const newObj = {};
+    for (let char of str.toLowerCase()) {
+      newObj[char] = newObj[char] + 1 || 1;
+    }
+    return newObj;
+  }
+
+  const objA = toObject(test);
+  const objB = toObject(original);
+
+  if (Object.keys(objA).length !== Object.keys(objB).length) {
+    return false;
+  }
+
+  for (let char in objA) {
+    if (objA[char] !== objB[char]) {
+      return false;
+    }
+  }
+  return true;
+}
