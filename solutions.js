@@ -1,8 +1,8 @@
+'Use strict';
+
 function solution(str) {
   return str.split('').reverse().join('');
 }
-
-console.log(solution('array'));
 
 
 function removeChar(str) {
@@ -19,4 +19,15 @@ function removeChar(str) {
   return str.slice(1, -1)
 }
 
-console.log(removeChar('eloquent'));
+
+function isPalindrome(line) {
+  line = line.toString();
+  let reverse = line.split('').reverse().join('')
+  console.log(reverse);
+  return (line === reverse) ? true : false;
+}
+
+function isPalindrome(line) {
+  return (String(line) === String(line).split('').reverse().join(''))
+}
+
