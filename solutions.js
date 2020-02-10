@@ -1,10 +1,11 @@
 'Use strict';
 
+//reverse string
 function solution(str) {
   return str.split('').reverse().join('');
 }
 
-
+//remove chars
 function removeChar(str) {
   let arr = [];
   let newArr = [];
@@ -19,7 +20,7 @@ function removeChar(str) {
   return str.slice(1, -1)
 }
 
-
+//is palindrome
 function isPalindrome(line) {
   line = line.toString();
   let reverse = line.split('').reverse().join('')
@@ -27,12 +28,13 @@ function isPalindrome(line) {
   return (line === reverse) ? true : false;
 }
 
+//is palindrome refactored
 function isPalindrome(line) {
   return (String(line) === String(line).split('').reverse().join(''))
 }
 
+//is anagram refactored
 var isAnagram = function (test, original) {
-
   const toObject = (str) => {
     const newObj = {};
     for (let char of str.toLowerCase()) {
@@ -55,3 +57,11 @@ var isAnagram = function (test, original) {
   }
   return true;
 }
+
+//is anagram refactored
+var isAnagram = function (test, original) {
+  var t = test.toLowerCase().split('').sort().join('');
+  var o = original.toLowerCase().split('').sort().join('');
+  return (t == o) ? true : false;
+};
+
