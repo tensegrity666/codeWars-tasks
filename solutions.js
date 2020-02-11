@@ -82,3 +82,32 @@ function cake(x, y) {
 
   return (sum >= percents) ? 'Fire!' : 'That was close!';
 }
+
+// INTEGERS century
+
+function century(year) {
+  return Math.ceil(year / 100);
+}
+
+//Greatest common divisor
+function mygcd(x, y) {
+  return x !== 0 ? mygcd(y % x, x) : y;
+}
+
+// factorial
+function factorial(n) {
+  let factorial = 1;
+  while (n) {
+    factorial *= n--;
+  }
+  return factorial;
+}
+
+//factorial best practice
+function factorial(n) {
+  if (n < 12) {
+    return n ? n * factorial(n - 1) : 1; //or (n !== 1) if from 1
+  } else {
+    throw 'RangeError';
+  }
+}
