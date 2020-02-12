@@ -111,3 +111,58 @@ function factorial(n) {
     throw 'RangeError';
   }
 }
+
+//find duplicate
+function findDup(arr) {
+  const sortArr = arr.sort();
+  let duplicateValue;
+  for (i = 0; i < sortArr.length; ++i) {
+    if (sortArr[i] === sortArr[i + 1])
+      duplicateValue = sortArr[i];
+  }
+  return duplicateValue;
+}
+
+//*! is prime (not working for big integers)
+
+function isPrime(num) {
+  if (num === 2 || num === 3) {
+    return true
+  }
+
+  if (num < 2 || num % 2 === 0 || num % 3 === 0 || num % 5 === 0) {
+    return false;
+  }
+
+  num = Math.sqrt(num) | 0;
+
+  for (let i = 2; i <= num; i++) {
+      return (num % i === 0) ? false : (i === 2) ? true : IsPrime(num, i - 1);
+    }
+
+  return true;
+}
+
+//bebst solution
+function isPrime(num) {
+  if (num === 2 || num === 3)
+    return true;
+
+  var limit = 1 + Math.sqrt(num);
+
+  if (num < 2 || num % 2 == 0 || num % 3 == 0)
+    return false;
+
+  for (var index = 6; index <= limit; index += 6) {
+    if (num % (index - 1) === 0) return false;
+    if (num % (index + 1) === 0) return false;
+  }
+  return true;
+}
+
+//shortest 
+
+function isPrime(num) {
+  for (var i = 2; i < num; i++) if (num % i == 0) return false;
+  return num >= 2;
+}
