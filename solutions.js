@@ -297,3 +297,49 @@ function validateUsr(username) {
   return (/^[a-z0-9_]{4,16}$/.test(username));
 }
 
+//Regexp Basics - is it a letter? in object
+String.prototype.isLetter = function () {
+  if ((/[a-z]/i).test(this) === true && this.length === 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//shortest
+String.prototype.isLetter = function () {
+  return /^[a-z]$/i.test(this);
+};
+
+//Regexp Basics - is it a vowel?
+String.prototype.vowel = function () {
+  return /^[aeiou]$/i.test(this);
+};
+
+
+//Currt
+const curry = fn => (...args) => {
+  console.log(fn.length, args.length)
+  if (fn.length > args.length) {
+    const f = fn.bind(null, ...args);
+    return curry(f);
+  } else {
+    return fn(...args);
+  }
+};
+
+const multiply = (arr, a) => {
+  console.log(arr.length, a)
+  const multiplied = [];
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i])
+    multiplied.push(arr[i] = a * arr[i]);
+  }
+  console.log(multiplied)
+  return multiplied;
+}
+
+const multiplyAll = curry(multiply);
+
+//shortest
+const multiplyAll = arr => int => arr.map(num => num * int);
