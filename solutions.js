@@ -317,7 +317,7 @@ String.prototype.vowel = function () {
 };
 
 
-//Currt
+//Curry
 const curry = fn => (...args) => {
   console.log(fn.length, args.length)
   if (fn.length > args.length) {
@@ -343,3 +343,18 @@ const multiplyAll = curry(multiply);
 
 //shortest
 const multiplyAll = arr => int => arr.map(num => num * int);
+
+
+//Basic Mathematical Operations
+function basicOp(operation, value1, value2) {
+  if (operation === '+') return value1 + value2;
+  if (operation === '-') return value1 - value2;
+  if (operation === '*') return value1 * value2;
+  if (operation === '/') return value1 / value2;
+};
+
+// shortest
+function basicOp(operation, value1, value2) {
+  return eval(value1 + operation + value2);
+}
+
