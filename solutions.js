@@ -358,3 +358,16 @@ function basicOp(operation, value1, value2) {
   return eval(value1 + operation + value2);
 }
 
+
+//Get the Middle Character
+function getMiddle(s) {
+const length = s.length
+  if (length % 2) {
+  return s.charAt(length / 2);
+  } else {
+    return s.substring((length / 2 - 1), (length / 2 + 1));
+  }
+}
+
+//shortest
+return s.slice((s.length - 1) / 2, s.length / 2 + 1);
