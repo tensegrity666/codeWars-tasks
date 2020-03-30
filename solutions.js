@@ -371,3 +371,17 @@ const length = s.length
 
 //shortest
 return s.slice((s.length - 1) / 2, s.length / 2 + 1);
+
+
+// A function that returns word count from a given string? You have to ensure
+// that spaces in string is a whitespace for real.
+function countWords(str) {
+    str = str.trim().replace(/\ufeff/g, ' ');
+  let s = str.split(' ');
+  s = s.filter(el => el !== '')
+
+  return s.length
+}
+
+//shortest
+return (str.match(/[^\s]+/g) || []).length;
