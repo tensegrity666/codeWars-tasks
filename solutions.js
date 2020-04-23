@@ -385,3 +385,37 @@ function countWords(str) {
 
 //shortest
 return (str.match(/[^\s]+/g) || []).length;
+
+
+//Remove First and Last Character Part Two
+function array(arr) {
+  return arr.split(",").slice(1, -1).join(" ") || null;
+}
+
+//prefill
+function prefill(n, v) {
+  if (parseInt(n) !== Math.abs(n)) throw new TypeError(`${n} is invalid`);
+  return +n ? Array(n).fill(v) : [];
+}
+
+//SantaClausable
+/*
+var santa = {
+    sayHoHoHo: function() { console.log('Ho Ho Ho!') },
+    distributeGifts: function() { console.log('Gifts for all!'); },
+    goDownTheChimney: function() { console.log('*whoosh*'); }
+};
+
+var notSanta = {
+    sayHoHoHo: function() { console.log('Oink Oink!') }
+    // no distributeGifts() and no goDownTheChimney()
+};
+
+isSantaClausable(santa); // must return TRUE
+isSantaClausable(notSanta); // must return FALSE
+*/
+function isSantaClausable(obj) {
+  return ['sayHoHoHo', 'distributeGifts', 'goDownTheChimney'].every(function (methodName) {
+    return typeof obj[methodName] == 'function';
+  });
+}
