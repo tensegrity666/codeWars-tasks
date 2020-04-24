@@ -419,3 +419,139 @@ function isSantaClausable(obj) {
     return typeof obj[methodName] == 'function';
   });
 }
+
+//function without function
+// var three = always(3);
+// three(); returns 3
+function always(n) {
+  return function () {
+    return n
+  }
+}
+
+// Implement a function createSecretHolder(secret) which accepts any value as secret and returns an object with ONLY two methods
+// getSecret() which returns the secret
+// setSecret() which sets the secret
+
+// obj = createSecretHolder(5)
+// obj.getSecret() # returns 5
+// obj.setSecret(2)
+// obj.getSecret() # returns 2
+function createSecretHolder(secret) {
+  return {
+    getSecret: function() {
+      return secret;
+    },
+    setSecret: function(v) {
+      secret = v;
+    }
+  }
+}
+
+// We want to create a function that will add numbers together when called in succession.
+//   add(1)(2);
+// returns 3
+var add = function (n) {
+  const chain = x => add(n + x);
+  chain.valueOf = () => n
+  return chain;
+}
+
+//es classes
+class Animal {
+  constructor(name, age, legs, species, status) {
+    this.name = name;
+    this.age = age;
+    this.legs = legs;
+    this.species = species;
+    this.status = status;
+  }
+  introduce() {
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+  }
+}
+
+class Shark extends Animal {
+  constructor(name, age, status, legs, species) {
+    super();
+    this.name = name;
+    this.legs = 0;
+    this.age = age;
+    this.status = status;
+    this.species = 'shark';
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, age, status) {
+    super();
+    this.name = name;
+    this.age = age;
+    this.legs = 4;
+    this.species = 'cat';
+    this.status = status;
+  }
+
+  introduce() {
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, age, status, master) {
+    super();
+    this.name = name;
+    this.age = age;
+    this.legs = 4;
+    this.species = 'dog';
+    this.status = status;
+    this.master = master;
+
+  }
+
+  greetMaster() {
+    return `Hello ${this.master}`;
+  }
+}
+
+
+//classes cubes and cuboids
+class Cuboid {
+  constructor(length, width, height) {
+    this.length = length;
+    this.width = width;
+    this.height = height;
+  }
+
+  get surfaceArea() {
+    return this.length * this.height * 2 + this.height * this.width * 2 + this.length * this.width * 2;
+  }
+
+  get volume() {
+    return this.width * this.height * this.length;
+  }
+}
+class Cube extends Cuboid {
+  // Don't forget to make a call to super ;)
+  constructor(length) {
+    super()
+    this.length = length;
+    this.width = length;
+    this.height = length;
+  }
+}
+
+//digital_root(942)
+// => 9 + 4 + 2
+// => 15 ...
+// => 1 + 5
+// => 6
+function digital_root(n) {
+  if (n < 10) return n;
+
+  const arr = n.toString().split('');
+  const reducer = (accumulator, currentValue) => Number(accumulator) + Number(currentValue);
+  const res = arr.reduce(reducer);
+
+  return digital_root(res);
+}
